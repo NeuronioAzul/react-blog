@@ -1,2 +1,3 @@
-# react-blog
-📚  Simples Blog em React js 
+# 📚 react-blog
+
+Simples Blog em React js 
