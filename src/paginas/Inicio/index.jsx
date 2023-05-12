@@ -1,7 +1,11 @@
 import React from 'react'
+import Banner from 'components/Banner'
 
 export default function Inicio() {
   return (
-    <h1>Início</h1>
+    <main>
+      <Banner />
+      <h1>Início</h1>
+    </main>
   )
 }
