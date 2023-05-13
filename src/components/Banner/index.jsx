@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Banner.module.css'
 import circuloColorido from 'assets/circulo_colorido.png'
-import minhaFoto from 'assets/minha_foto.png'
+import minhaFoto from 'assets/minha_foto_s_bg.png'
 
 export default function Banner() {
   return (
