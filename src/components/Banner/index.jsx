@@ -17,6 +17,7 @@ export default function Banner() {
           src={circuloColorido}
           className={styles.circuloColorido}
           aria-hidden={true}
+          alt="Bolinha de gude com um universo dentro"
         />
         <img
           src={minhaFoto}
