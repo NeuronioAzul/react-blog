@@ -5,6 +5,8 @@ import PaginaPadrao from "components/PaginaPadrao"
 import NaoEncontrado from "paginas/NaoEncontrado"
 import posts from 'json/posts.json'
 import './Post.css'
+import PostCard from "components/PostCard"
+import PostModule from "./PostModule"
 
 export default function Post() {
     const parametros = useParams()
@@ -16,6 +18,8 @@ export default function Post() {
     if (!post) {
         return <NaoEncontrado />
     }
+    
+    const postsRecomendados = posts.filter((postx)=>postx.id !== Number(post.id))
 
     return (
         <PaginaPadrao>
@@ -29,6 +33,7 @@ export default function Post() {
                     </ReactMarkdown>
                 </div>
             </PostModelo>
+            <PostModule />
         </PaginaPadrao>
     )
 }
