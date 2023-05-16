@@ -5,7 +5,6 @@ import PaginaPadrao from "components/PaginaPadrao"
 import NaoEncontrado from "paginas/NaoEncontrado"
 import posts from 'json/posts.json'
 import './Post.css'
-import PostCard from "components/PostCard"
 import PostModule from "./PostModule"
 
 export default function Post() {
@@ -18,8 +17,25 @@ export default function Post() {
     if (!post) {
         return <NaoEncontrado />
     }
+
+    const recomendarPosts = () => {
+        const postsRecomendados = []
+
+        while (postsRecomendados.length < 4) {
+            let x = Math.floor(Math.random() * (8 - 1 + 1)) + 1
+            
+            let daVez = posts.find((postx) => {
+                return x === postx.id
+                    && postx.id !== Number(post.id)
+                    && !postsRecomendados.some((item) => item.id === x);
+            });
     
-    const postsRecomendados = posts.filter((postx)=>postx.id !== Number(post.id))
+            if (daVez) {
+                postsRecomendados.push(daVez);
+            }
+        }
+        return postsRecomendados
+    }
 
     return (
         <PaginaPadrao>
@@ -33,7 +49,7 @@ export default function Post() {
                     </ReactMarkdown>
                 </div>
             </PostModelo>
-            <PostModule />
+            <PostModule posts={recomendarPosts()} />
         </PaginaPadrao>
     )
 }
